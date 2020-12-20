@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="340dp"
+    android:id="@+id/bottom_map"
+    android:background="@color/white"
+    android:clickable="true"
+    android:orientation="vertical"
+    app:layout_behavior="com.example.mappaddingactivity.AnchorSheetBehavior"
+    app:behavior_peekHeight="70dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="#EED600"
+        >
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/tap_action_layout"
+            android:layout_width="240dp"
+            android:layout_height="45dp"
+            android:layout_centerInParent="true"
+            android:text="Get Location"
+            android:textColor="@color/white"
+            style="@style/button_back"
+
+
+            />
+
+
+
+
+    </RelativeLayout>
+
+
+</LinearLayout>
