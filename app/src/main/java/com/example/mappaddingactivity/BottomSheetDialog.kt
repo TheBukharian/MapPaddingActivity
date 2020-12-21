@@ -15,13 +15,13 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.uniquestudio.library.CircleCheckBox
 import java.util.*
 
-class BottomSheetDialog:BottomSheetDialogFragment() {
+class BottomSheetDialog:Bottom() {
 
     val baseContext = context?.applicationContext
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setStyle(DialogFragment.STYLE_NORMAL, R.style.ThemeOverlay_Demo_BottomSheetDialog)
+//        setStyle(DialogFragment.STYLE_NORMAL, R.style.ThemeOverlay_Demo_BottomSheetDialog)
 
     }
 
