@@ -50,6 +50,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
     }
     private fun setUpAnchor(btm: View){
         bsBehavior = AnchorSheetBehavior.from(btm)
+        bsBehavior.peekHeight = 180
         bsBehavior.state = AnchorSheetBehavior.STATE_COLLAPSED
         bsBehavior.setAnchorOffset(0.5f)
         bsBehavior.setAnchorSheetCallback(object : AnchorSheetCallback() {
