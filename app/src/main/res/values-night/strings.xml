@@ -1,5 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">MapPaddingActivity</string>
     <string name="title_activity_maps" translatable="false">Map</string>
-    <string name="textToTranslate">Let it snow in this winter holiday.</string>
-</resources>
+    <string name="textToTranslate">Let it snow in this winter holiday.</string></resources>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/bottomSheet"
+    android:layout_width="match_parent"
+    android:layout_height="300dp"
+    style="@style/Widget.Demo.BottomSheet"
+    app:layout_behavior="@string/bottom_sheet_behavior">
+    <androidx.appcompat.widget.AppCompatButton
+        android:clickable="false"
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="8dp"
+        android:elevation="0dp"
+        android:background="@drawable/button_view"
+        android:backgroundTint="#CACACA"
+        android:layout_marginEnd="180dp"
+        android:layout_marginStart="180dp"
+
+        />
+
+    <androidx.appcompat.widget.AppCompatRadioButton
+        android:id="@+id/ratio1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingStart="20dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="40dp"
+        android:text="English"
+        android:textSize="18sp"
+        android:layout_marginTop="65dp" />
+    <androidx.appcompat.widget.AppCompatRadioButton
+        android:id="@+id/ratio2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="40dp"
+        android:text="Русский"
+        android:textSize="18sp"
+        android:paddingStart="20dp"
+        android:layout_marginTop="15dp"
+        android:layout_below="@+id/ratio1"
+         />
+    <androidx.appcompat.widget.AppCompatRadioButton
+        android:id="@+id/ratio3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:text="O`zbek"
+        android:textSize="18sp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="15dp"
+        android:layout_below="@+id/ratio2"
+        android:paddingStart="20dp"
+        />
+
+
+
+</RelativeLayout>
