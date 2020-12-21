@@ -2,6 +2,7 @@ package com.example.mappaddingactivity
 
 import android.app.Activity
 import android.content.Context
+import android.content.SharedPreferences
 import android.content.res.Configuration
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -41,13 +42,29 @@ class LanguageActivity :  AppCompatActivity(),com.example.mappaddingactivity.Bot
     }
 
 
-    override fun onItemClick(view:View) {}
+    override fun onItemClick() {
+        loadLocate()
+        recreate()
+    }
 
 
      fun loadLocate() {
         val sharedPreferences = getSharedPreferences("Settings", Activity.MODE_PRIVATE)
-        val language = sharedPreferences.getString("My_Lang", "")
-        BottomSheetDialog().setLocate(language!!)
+        val language = sharedPreferences.getString("My_Lang","uz")
+        setLocate(language!!)
+
+
+    }
+    fun setLocate(Lang: String) {
+
+        val locale = Locale(Lang)
+        Locale.setDefault(locale)
+        val config = Configuration()
+        config.locale = locale
+        baseContext.resources.updateConfiguration(config, baseContext.resources.displayMetrics)
+        val editor: SharedPreferences.Editor? = getSharedPreferences("Settings", Context.MODE_PRIVATE).edit()
+        editor?.putString("My_Lang", Lang)
+        editor?.apply()
     }
 
 }

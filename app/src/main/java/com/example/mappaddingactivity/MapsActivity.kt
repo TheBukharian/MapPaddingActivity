@@ -69,7 +69,8 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
             override fun onSlide(bottomSheet: View, slideOffset: Float) {
                 val h = bottomSheet.height.toFloat()
                 val off = h * slideOffset
-                when (bsBehavior.getState()) {
+
+                when (bsBehavior.state) {
                     AnchorSheetBehavior.STATE_DRAGGING -> {
                         setMapPaddingBotttom(off)
 

@@ -35,17 +35,35 @@ class BottomSheetDialog:BottomSheetDialogFragment() {
 
 
 
-        rad2.setOnCheckedChangeListener { _, _ ->
+        rad1.setOnClickListener {
+
+            if (rad1.isChecked){
+            setLocate("en")
+            dismiss()
+                mListener?.onItemClick()
+
+            }
+
+
+
+
+        }
+        rad2.setOnClickListener {
             if (rad2.isChecked){
-                val sharedPreferences = activity?.getSharedPreferences("Settings", Activity.MODE_PRIVATE)
-                val language = sharedPreferences?.getString("My_Lang", "")
-                setLocate(language!!)
-                // Here i need to update activity_language layout, but i don`t know how:
-
-
-
-                //dismiss bottom sheet dialog
+                setLocate("ru")
                 dismiss()
+                mListener?.onItemClick()
+
+
+            }
+
+        }
+        rad3.setOnClickListener {
+            if (rad3.isChecked){
+                setLocate("uz")
+                dismiss()
+                mListener?.onItemClick()
+
 
             }
 
@@ -71,7 +89,7 @@ class BottomSheetDialog:BottomSheetDialogFragment() {
         if (context is ItemClickListener) {
             mListener = context as ItemClickListener
         } else {
-            throw RuntimeException(context.toString() + " must implement ItemClickListener")
+            throw RuntimeException("$context must implement ItemClickListener")
         }
     }
 
@@ -81,16 +99,12 @@ class BottomSheetDialog:BottomSheetDialogFragment() {
     }
 
     interface ItemClickListener {
-        fun onItemClick(view: View){
-
-        }
+        fun onItemClick(){}
     }
     fun setLocate(Lang: String) {
 
         val locale = Locale(Lang)
-
         Locale.setDefault(locale)
-
         val config = Configuration()
 
         val baseContext = context?.applicationContext

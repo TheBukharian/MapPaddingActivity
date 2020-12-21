@@ -56,7 +56,9 @@ import static androidx.core.view.ViewCompat.postOnAnimation;
 public class AnchorSheetBehavior<V extends View> extends CoordinatorLayout.Behavior<V> {
 
 
+
     public abstract static class AnchorSheetCallback {
+
 
         public abstract void onStateChanged(@NonNull View bottomSheet, @State int newState);
 
@@ -183,7 +185,9 @@ public AnchorSheetBehavior(){
     @Override
     public Parcelable onSaveInstanceState(CoordinatorLayout parent, V child) {
         return new SavedState(super.onSaveInstanceState(parent, child), mState);
+
     }
+
 
     @Override
     public void onRestoreInstanceState(CoordinatorLayout parent, V child, Parcelable state) {
@@ -196,6 +200,7 @@ public AnchorSheetBehavior(){
             mState = ss.state;
         }
     }
+
 
     @Override
     public boolean onLayoutChild(CoordinatorLayout parent, V child, int layoutDirection) {
