@@ -6,6 +6,15 @@
     android:layout_height="wrap_content"
     style="@style/Widget.Demo.BottomSheet"
     app:layout_behavior="@string/bottom_sheet_behavior">
+    <TextView
+        android:id="@+id/selectText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Select Language"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_margin="20dp"
+        />
     <androidx.appcompat.widget.AppCompatButton
         android:clickable="false"
         android:layout_width="match_parent"
@@ -22,45 +31,149 @@
 
         />
 
-    <androidx.appcompat.widget.AppCompatRadioButton
-        android:id="@+id/ratio1"
+    <LinearLayout
+        android:id="@+id/linear"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingStart="20dp"
+        android:layout_below="@+id/selectText"
         android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="40dp"
-        android:text="English"
-        android:textSize="18sp"
-        android:layout_marginTop="65dp" />
-    <androidx.appcompat.widget.AppCompatRadioButton
-        android:id="@+id/ratio2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="40dp"
-        android:text="Русский"
-        android:textSize="18sp"
-        android:paddingStart="20dp"
-        android:layout_marginTop="15dp"
-        android:layout_below="@+id/ratio1"
-         />
-    <androidx.appcompat.widget.AppCompatRadioButton
-        android:id="@+id/ratio3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:text="O`zbek"
-        android:textSize="18sp"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="15dp"
-        android:layout_below="@+id/ratio2"
-        android:paddingStart="20dp"
-        />
+        android:layout_alignParentEnd="true"
+
+        android:orientation="vertical"
+        android:weightSum="3">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <com.uniquestudio.library.CircleCheckBox
+                android:id="@+id/ratio1"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="40dp"
+                app:animation_duration="500"
+                app:background_color="#474947"
+                app:border_color="@color/purple_500"
+                app:checked="false"
+                app:tick_color="@color/white"
+                app:tick_width="1.5dp" />
+
+            <ImageView
+                android:id="@+id/img1"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="15dp"
+                android:src="@drawable/uk"
+
+                />
+
+            <TextView
+                android:id="@+id/lang1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:paddingStart="20dp"
+                android:text="English"
+                android:textSize="17sp"
+
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <com.uniquestudio.library.CircleCheckBox
+                android:id="@+id/ratio2"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="40dp"
+                app:animation_duration="500"
+                app:background_color="#474947"
+                app:border_color="@color/purple_500"
+                app:checked="false"
+                app:tick_color="@color/white"
+                app:tick_width="1.5dp" />
+
+            <ImageView
+                android:id="@+id/img2"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="15dp"
+                android:src="@drawable/russia"
+
+                />
+
+            <TextView
+                android:id="@+id/lang2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:paddingStart="20dp"
+                android:text="Русский"
+                android:textSize="17sp"
+
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <com.uniquestudio.library.CircleCheckBox
+                android:id="@+id/ratio3"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="40dp"
+                app:animation_duration="500"
+                app:background_color="#474947"
+                app:border_color="@color/purple_500"
+                app:checked="false"
+                app:tick_color="@color/white"
+                app:tick_width="1.5dp" />
+
+            <ImageView
+                android:id="@+id/img3"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="15dp"
+                android:src="@drawable/uzbekistan"
+
+                />
+
+            <TextView
+                android:id="@+id/lang3"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:paddingStart="20dp"
+                android:text="O`zbek"
+                android:textSize="17sp"
+
+                />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
     <View
         android:layout_height="100dp"
         android:layout_width="match_parent"
-        android:layout_below="@+id/ratio3"
+        android:layout_below="@+id/linear"
         />
 
 

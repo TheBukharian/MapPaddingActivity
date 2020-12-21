@@ -12,63 +12,72 @@ import android.view.ViewGroup
 import android.widget.RadioButton
 import androidx.fragment.app.DialogFragment
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
+import com.uniquestudio.library.CircleCheckBox
 import java.util.*
 
 class BottomSheetDialog:BottomSheetDialogFragment() {
 
+    val baseContext = context?.applicationContext
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setStyle(DialogFragment.STYLE_NORMAL, R.style.ThemeOverlay_Demo_BottomSheetDialog)
+
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.language_bottom_sheet, container, false)
+
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val rad1 = view.findViewById<RadioButton>(R.id.ratio1)
-        val rad2 = view.findViewById<RadioButton>(R.id.ratio2)
-        val rad3 = view.findViewById<RadioButton>(R.id.ratio3)
+        val rad1 = view.findViewById<CircleCheckBox>(R.id.ratio1)
+        val rad2 = view.findViewById<CircleCheckBox>(R.id.ratio2)
+        val rad3 = view.findViewById<CircleCheckBox>(R.id.ratio3)
 
 
 
 
-        rad1.setOnClickListener {
+
+        rad1.setListener(CircleCheckBox.OnCheckedChangeListener {
+            rad1.isChecked = true
+            rad2.isChecked = false
+            rad3.isChecked = false
 
             if (rad1.isChecked){
-            setLocate("en")
-            dismiss()
-                mListener?.onItemClick()
+                setLocate("en")
 
             }
-
-
-
-
-        }
-        rad2.setOnClickListener {
+        })
+        rad2.setListener(CircleCheckBox.OnCheckedChangeListener {
+            rad1.isChecked = false
+            rad2.isChecked = true
+            rad3.isChecked = false
             if (rad2.isChecked){
                 setLocate("ru")
-                dismiss()
-                mListener?.onItemClick()
 
 
             }
-
-        }
-        rad3.setOnClickListener {
+        })
+        rad3.setListener(CircleCheckBox.OnCheckedChangeListener {
+            rad1.isChecked = false
+            rad2.isChecked = false
+            rad3.isChecked = true
             if (rad3.isChecked){
                 setLocate("uz")
-                dismiss()
-                mListener?.onItemClick()
 
 
             }
-
-        }
+        })
     }
+
+//    override fun onDismiss(dialog: DialogInterface) {
+//        super.onDismiss(dialog)
+//        mListener?.onItemClick()
+//
+//    }
 
 
 
@@ -107,7 +116,6 @@ class BottomSheetDialog:BottomSheetDialogFragment() {
         Locale.setDefault(locale)
         val config = Configuration()
 
-        val baseContext = context?.applicationContext
         config.locale = locale
         baseContext?.resources?.updateConfiguration(config, baseContext.resources.displayMetrics)
 

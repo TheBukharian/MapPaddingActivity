@@ -6,15 +6,10 @@ import android.content.SharedPreferences
 import android.content.res.Configuration
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import android.widget.Button
-import android.widget.RadioButton
-import android.widget.RelativeLayout
-import com.google.android.material.bottomsheet.BottomSheetBehavior
-import com.google.android.material.bottomsheet.BottomSheetDialog
 import java.util.*
 
-class LanguageActivity :  AppCompatActivity(),com.example.mappaddingactivity.BottomSheetDialog.ItemClickListener {
+class LanguageActivity :  AppCompatActivity(),BottomSheetDialog.ItemClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,7 +21,7 @@ class LanguageActivity :  AppCompatActivity(),com.example.mappaddingactivity.Bot
         langbtn.setOnClickListener {
 
             supportFragmentManager.let {
-                com.example.mappaddingactivity.BottomSheetDialog.newInstance(Bundle()).apply {
+                BottomSheetDialog.newInstance(Bundle()).apply {
                     show(it, tag)
                 }
 
@@ -42,6 +37,7 @@ class LanguageActivity :  AppCompatActivity(),com.example.mappaddingactivity.Bot
     }
 
 
+
     override fun onItemClick() {
         loadLocate()
         recreate()
@@ -50,7 +46,7 @@ class LanguageActivity :  AppCompatActivity(),com.example.mappaddingactivity.Bot
 
      fun loadLocate() {
         val sharedPreferences = getSharedPreferences("Settings", Activity.MODE_PRIVATE)
-        val language = sharedPreferences.getString("My_Lang","uz")
+        val language = sharedPreferences.getString("My_Lang","")
         setLocate(language!!)
 
 
@@ -62,9 +58,9 @@ class LanguageActivity :  AppCompatActivity(),com.example.mappaddingactivity.Bot
         val config = Configuration()
         config.locale = locale
         baseContext.resources.updateConfiguration(config, baseContext.resources.displayMetrics)
-        val editor: SharedPreferences.Editor? = getSharedPreferences("Settings", Context.MODE_PRIVATE).edit()
-        editor?.putString("My_Lang", Lang)
-        editor?.apply()
+        val editor: SharedPreferences.Editor = getSharedPreferences("Settings", Context.MODE_PRIVATE).edit()
+        editor.putString("My_Lang", Lang)
+        editor.apply()
     }
 
 }
